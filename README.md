@@ -1,14 +1,38 @@
 # bipsea-scripted
 Just a script to use bipsea BIP85 derivation
+Script read AES seed stored on file seed.data, encrypt.sh purpose is to create this file
 
-# How to use
+##Encrypt your Seed
 
-Run script.sh with $1 = parent seed, $2 number of words, $3 index of child
+./encrypt.sh
 
-# Exemple
+Give your seed
+Give your password
 
-(this is not my seed, dont try it, dont use it :D)
+File generated using this command :
 
-./script.sh "install scatter logic circle pencil average fall shoe quantum disease suspect usage" 12 0
+gpg --symmetric --batch --passphrase "$password" --cipher-algo AES256 --output seed.data
 
-Return "install scatter logic circle pencil average fall shoe quantum disease suspect usage" BIP85 12 word index 0
+No leaks
+
+## Read and derivate
+
+./script.sh $NUMBER_OF_WORD $INDEX
+
+$NUMBER_OF_WORD must be 12 or 24.
+
+Give seed.data password
+
+This one decode seed.data with std GPG function
+
+gpg --decrypt --no-symkey-cache --passphrase $password --batch seed.data 2>/dev/null
+
+Find derivate with 
+
+bipsea validate -m "$DECODED" | bipsea xprv |  bipsea derive -a mnemonic -n "$1" -i "$2"
+
+And display with QREncode
+
+qrencode "$derivated" -t ANSI256UTF
+
+
