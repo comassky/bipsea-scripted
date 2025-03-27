@@ -19,7 +19,7 @@ Example of seed :
 File generated using this command :
 
  
-    gpg --symmetric --batch --passphrase "$password" --cipher-algo AES256`enter code here` --output seed.data
+    gpg --symmetric --batch --passphrase "$password" --cipher-algo AES256 --output seed.data
 
 After file generation, script clear CLI history with this command line (https://askubuntu.com/a/473770)
 
