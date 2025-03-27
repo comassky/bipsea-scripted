@@ -81,7 +81,9 @@ Example of seed :
 > install scatter logic circle pencil average fall shoe quantum disease
 > suspect usage
 
-File generated using this command :
+### How it works
+
+File is generated using this command :
 
  
     gpg --symmetric --batch --passphrase "$password" --cipher-algo AES256 --output seed.data
@@ -100,6 +102,7 @@ $NUMBER_OF_WORD must be 12 or 24.
 
 Give seed.data password
 
+### How it works 
 This script decode seed.data with std GPG decrypt function
 
     gpg --decrypt --no-symkey-cache --passphrase $password --batch seed.data 2>/dev/null
