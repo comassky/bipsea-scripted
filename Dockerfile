@@ -1,5 +1,5 @@
 FROM alpine
-ADD script.sh encrypt.sh ./
+ADD script.sh encrypt.sh decrypt.sh ./
 # ## Note: `pipx` requires Bash
 RUN apk add --no-cache --update \
         python3 \
