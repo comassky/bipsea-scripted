@@ -1,11 +1,11 @@
 # bipsea-scripted
 Just a script to use bipsea BIP85 derivation
 
-#How to use
+# How to use
 
 Run script.sh with $1 = parent seed, $2 number of words, $3 index of child
 
-#Exemple
+# Exemple
 
 (this is not my seed, dont try it, dont use it :D)
 
