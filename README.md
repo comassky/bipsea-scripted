@@ -8,7 +8,7 @@ Script script.sh read AES encrypted seed stored on file seed.data (AES256 Gpg en
 
 I also provide a script to encrypt your seed via gpg :  encrypt.sh (you can also create it with GPG manually)
 
-Using : Bipsea (https://github.com/akarve/bipsea), QREncode (https://github.com/leplusorg/docker-qrcode), GPG (https://github.com/gpg/gnupg)
+Using : Bipsea (https://github.com/akarve/bipsea), QREncode (https://linux.die.net/man/1/qrencode), GPG (https://github.com/gpg/gnupg)
 
 ![til](./example.gif)
 
