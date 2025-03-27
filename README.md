@@ -1,4 +1,5 @@
 
+
 # bipsea-scripted
 Just a script to use bipsea BIP85 derivation
 Script read AES seed stored on file seed.data, encrypt.sh purpose is to create this file
@@ -18,8 +19,11 @@ Example of seed :
 File generated using this command :
 
  
-
     gpg --symmetric --batch --passphrase "$password" --cipher-algo AES256`enter code here` --output seed.data
+
+After file generation, script clear CLI history with this command line (https://askubuntu.com/a/473770)
+
+    clear && printf '\e[3J'
 
 **No leaks, you can (and i recommand) use OFFLINE devices.**
 
