@@ -56,4 +56,5 @@ You can run this scripts inside docker container without network access :
 	 - `docker build -t imageName .`
  - Run container without network access
 	 - `docker run --rm -it --net=none imageName /bin/bash`
+    	 - or use image build from this repository `docker run --rm -it --net=none ghcr.io/comassky/bipsea-scripted:main /bin/bash`
  - Use script as previously discribed
