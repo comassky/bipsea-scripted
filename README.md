@@ -8,6 +8,7 @@ Script script.sh read AES encrypted seed stored on file seed.data (AES256 Gpg en
 
 I also provide a script to encrypt your seed via gpg :  encrypt.sh (you can also create it with GPG manually)
 
+![til](./example.gif)
 
 ## Encrypt your Seed
 
