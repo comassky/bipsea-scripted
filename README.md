@@ -41,6 +41,6 @@ Find derivated key with
 
 And display with QREncode
 
-    qrencode "$derivated" -t ANSI256UTF
+    qrencode "$derivated" -t ANSI256UTF8
 
 
