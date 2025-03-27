@@ -81,11 +81,20 @@ Example of seed :
 > install scatter logic circle pencil average fall shoe quantum disease
 > suspect usage
 
-### How it works
+## Read and derivate
+
+    ./script.sh $NUMBER_OF_WORD $INDEX
+
+$NUMBER_OF_WORD must be 12 or 24.
+
+ 1. Give seed.data password
+
+## How it works
+
+### Encryption
 
 File is generated using this command :
 
- 
     gpg --symmetric --batch --passphrase "$password" --cipher-algo AES256 --output seed.data
 
 After file generation, script clear CLI history with this command line (https://askubuntu.com/a/473770)
@@ -94,15 +103,8 @@ After file generation, script clear CLI history with this command line (https://
 
 **No leaks, you can (and i recommand) use OFFLINE devices.**
 
-## Read and derivate
+### Read & Derivation
 
-    ./script.sh $NUMBER_OF_WORD $INDEX
-
-$NUMBER_OF_WORD must be 12 or 24.
-
-Give seed.data password
-
-### How it works 
 This script decode seed.data with std GPG decrypt function
 
     gpg --decrypt --no-symkey-cache --passphrase $password --batch seed.data 2>/dev/null
@@ -114,7 +116,6 @@ Find derivated key with
 And display with QREncode
 
     qrencode "$derivated" -t ANSI256UTF8
-
 
 ## Docker
 
