@@ -2,7 +2,8 @@
 
 # bipsea-scripted
 Just a script to use bipsea BIP85 derivation
-Script read AES seed stored on file seed.data, encrypt.sh purpose is to create this file
+Script read AES ecnrypted seed stored on file seed.data
+Encrypt.sh is a tool to create this file seed.data (you can also create it with GPG manually).
 
 ## Encrypt your Seed
 
