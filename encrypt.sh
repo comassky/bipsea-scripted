@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 clear
 read -p "Parent seed : " seed
 read -s -p "Password : " password

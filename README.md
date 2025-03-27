@@ -31,7 +31,7 @@ After file generation, script clear CLI history with this command line (https://
 
     ./script.sh $NUMBER_OF_WORD $INDEX
 
-**$NUMBER_OF_WORD** must be 12 or 24.
+$NUMBER_OF_WORD must be 12 or 24.
 
 Give seed.data password
 
@@ -48,3 +48,12 @@ And display with QREncode
     qrencode "$derivated" -t ANSI256UTF8
 
 
+## Docker
+
+You can run this scripts inside docker container without network access :
+
+ - Build image 
+	 - `docker build -t imageName .`
+ - Run container without network access
+	 - `docker run --rm -it --net=none imageName /bin/bash`
+ - Use script as previously discribed

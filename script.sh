@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 clear
 read -s -p "Password: " password
 printf "\n"
