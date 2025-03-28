@@ -1,12 +1,17 @@
-FROM alpine
-ADD script.sh encrypt.sh decrypt.sh ./
-# ## Note: `pipx` requires Bash
-RUN apk add --no-cache --update \
-        python3 \
-         bash \
-         pipx \
-         gpg \
-         libqrencode-tools \
-     && rm -rf ~/.cache/* /usr/local/share/man /tmp/*     
-       
-RUN pipx install bipsea && pipx ensurepath
+# Use the official Python base image with Alpine
+FROM python:alpine
+
+# Set the working directory
+WORKDIR /app
+
+# Copy scripts
+COPY bip85.sh decrypt.sh encrypt.sh /app/
+
+# Install bash, gpg, gpg-agent, and other dependencies in a single RUN command
+RUN apk update && \
+    apk add --no-cache bash gpg gpg-agent libqrencode-tools file && \
+    pip install bipsea
+   # gpg-agent --daemon
+
+# Set the default command to bash
+CMD ["bash"]
