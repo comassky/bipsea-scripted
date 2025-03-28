@@ -2,6 +2,8 @@
 
 Welcome to the **Seed Data Encryption and Decryption Scripts** repository! This project contains three powerful Bash scripts designed to encrypt, decrypt, and derive mnemonic phrases from seed data files. The scripts leverage GPG (GNU Privacy Guard) for encryption and decryption, bipsea (https://github.com/akarve/bipsea) for BIP85 derivation (officially recognized by the BTC community : https://github.com/bitcoin/bips/blob/master/bip-0085.mediawiki) and qrencode (https://linux.die.net/man/1/qrencode) for generating QR codes.
 
+![til](demo.gif)
+
 ## Scripts Overview
 
 ### 1. `encrypt.sh`
