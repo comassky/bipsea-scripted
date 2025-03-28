@@ -1,73 +1,106 @@
 
 
+# Seed Data Encryption and Decryption Scripts
 
-# bipsea-scripted
-Just a script to use bipsea  BIP85 derivation  (https://github.com/akarve/bipsea, officially recognized by BIP85 https://github.com/bitcoin/bips/blob/master/bip-0085.mediawiki )
+Welcome to the **Seed Data Encryption and Decryption Scripts** repository! This project contains three powerful Bash scripts designed to encrypt, decrypt, and derive mnemonic phrases from seed data files. The scripts leverage GPG (GNU Privacy Guard) for encryption and decryption, and `qrencode` for generating QR codes.
 
-Script script.sh read AES encrypted seed stored on file seed.data (AES256 Gpg encrypted file)
+## Scripts Overview
 
-I also provide a script to encrypt your seed via gpg :  encrypt.sh (you can also create it with GPG manually)
+### 1. `decrypt.sh`
 
-Using : Bipsea (https://github.com/akarve/bipsea), QREncode (https://linux.die.net/man/1/qrencode), GPG (https://github.com/gpg/gnupg)
+This script decrypts a seed data file using GPG and generates a QR code from the decrypted mnemonic.
 
-![til](./example.gif)
+#### Usage
+```bash
+./decrypt.sh -f path/to/seed_data_file
+```
 
-## Encrypt your Seed
+#### Options
+- `-f <seed_path>`: Path to the seed data file (required).
+- `-h`: Display help message.
 
-    ./encrypt.sh
+#### How It Works
+1. **Prompt for Password**: The script securely prompts the user for a password.
+2. **Decrypt Data**: It uses GPG to decrypt the specified seed data file with the provided password.
+3. **Generate QR Code**: If decryption is successful, the script generates a QR code from the decrypted mnemonic.
+4. **Security Measures**: The script clears the terminal and removes the scrollback buffer to ensure security, and securely erases the password from memory.
 
- 1. Give your seed (space between words)
- 2. Your strong AES encryption password
+### 2. `bip85.sh`
 
-Example of seed : 
+This script decrypts a seed data file, derives a mnemonic phrase, and generates a QR code from the derived mnemonic.
 
-> install scatter logic circle pencil average fall shoe quantum disease
-> suspect usage
+#### Usage
+```bash
+./bip85.sh -f path/to/seed_data_file -n number_of_words -i index
+```
 
-## Read and derivate
+#### Options
+- `-f <seed_path>`: Specify the path to the seed data file (default: `/tmp/seed.data`).
+- `-n <num_words>`: Specify the number of words for the mnemonic (default: 12).
+- `-i <index>`: Specify the index (required).
+- `--help`: Display help message.
 
-    ./script.sh $NUMBER_OF_WORD $INDEX
+#### How It Works
+1. **Prompt for Password**: The script securely prompts the user for a password.
+2. **Decrypt Data**: It uses GPG to decrypt the specified seed data file with the provided password.
+3. **Derive Mnemonic**: The script uses `bipsea` commands to validate the decrypted data and derive a mnemonic phrase based on the specified number of words and index.
+4. **Generate QR Code**: If mnemonic derivation is successful, the script generates a QR code from the derived mnemonic.
+5. **Security Measures**: The script clears the terminal and removes the scrollback buffer to ensure security, and securely erases the password from memory.
 
-$NUMBER_OF_WORD must be 12 or 24.
+### 3. `encrypt.sh`
 
- 1. Give seed.data password
+This script encrypts a seed using GPG with AES256 encryption and generates an output file.
 
-## How it works
+#### Usage
+```bash
+./encrypt.sh -o path/to/output_file
+```
 
-### Encryption
+#### Options
+- `-o <output_path>`: Specify the output file path (required).
+- `-h`: Display help message.
 
-File is generated using this command :
-
-    gpg --symmetric --batch --passphrase "$password" --cipher-algo AES256 --output seed.data
-
-After file generation, script clear CLI history with this command line (https://askubuntu.com/a/473770)
-
-    clear && printf '\e[3J'
-
-**No leaks, you can (and i recommand) use OFFLINE devices.**
-
-### Read & Derivation
-
-This script decode seed.data with std GPG decrypt function
-
-    gpg --decrypt --no-symkey-cache --passphrase $password --batch seed.data 2>/dev/null
-
-Find derivated key with 
-
-    bipsea validate -m "$DECODED" | bipsea xprv |  bipsea derive -a mnemonic -n "$1" -i "$2"
-
-And display with QREncode
-
-    qrencode "$derivated" -t ANSI256UTF8
+#### How It Works
+1. **Prompt for Seed and Password**: The script prompts the user for the seed and password securely, and confirms the password to ensure it matches.
+2. **Encrypt Seed**: It uses GPG with AES256 encryption to encrypt the seed with the provided password.
+3. **Output File**: The script outputs the absolute path of the encrypted file.
+4. **Security Measures**: The script clears the terminal and removes the scrollback buffer to ensure security, and securely erases the password from memory. It also sets appropriate permissions for the output file and logs the file type.
 
 ## Docker
 
-You can run this scripts inside docker container without network access :
+You can run these scripts inside a Docker container without network access:
 
- - Build image 
-	 - `docker build -t imageName .`
- - Run container without network access
-	 - `docker run --rm -it --net=none imageName /bin/bash`
-    	 - or use image build from this repository `docker run --rm -it --net=none ghcr.io/comassky/bipsea-scripted:main /bin/bash`
- - You can mount a volume to /tmp to persist seed.data 
- - Use script as previously discribed
+- **Build Image**:
+  ```bash
+  docker build -t imageName .
+  ```
+
+- **Run Container Without Network Access**:
+  ```bash
+  docker run --rm -it --net=none imageName /bin/bash
+  ```
+  Or use the image built from this repository:
+  ```bash
+  docker run --rm -it --net=none ghcr.io/comassky/bipsea-scripted:main /bin/bash
+  ```
+
+- **Persist Seed Data**:
+  You can mount a volume to `/tmp` to persist `seed.data`.
+
+- **Use Scripts**:
+  Use the scripts as previously described.
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Acknowledgements
+
+- GPG (https://github.com/gpg/gnupg)
+- qrencode (https://linux.die.net/man/1/qrencode)
+- bipsea (https://github.com/akarve/bipsea)
+```
