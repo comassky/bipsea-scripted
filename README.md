@@ -1,4 +1,4 @@
-# Seed Data Encryption and Decryption Scripts
+# Seed Data Encryption, decryption and BIP85 Scripts
 
 Welcome to the **Seed Data Encryption and Decryption Scripts** repository! This project contains three powerful Bash scripts designed to encrypt, decrypt, and derive mnemonic phrases from seed data files. The scripts leverage GPG (GNU Privacy Guard) for encryption and decryption, and `qrencode` for generating QR codes.
 
