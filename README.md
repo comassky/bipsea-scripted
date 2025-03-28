@@ -1,12 +1,30 @@
-
-
 # Seed Data Encryption and Decryption Scripts
 
 Welcome to the **Seed Data Encryption and Decryption Scripts** repository! This project contains three powerful Bash scripts designed to encrypt, decrypt, and derive mnemonic phrases from seed data files. The scripts leverage GPG (GNU Privacy Guard) for encryption and decryption, and `qrencode` for generating QR codes.
 
 ## Scripts Overview
 
-### 1. `decrypt.sh`
+### 1. `encrypt.sh`
+
+This script encrypts a seed using GPG with AES256 encryption and generates an output file.
+
+#### Usage
+```bash
+./encrypt.sh -o path/to/output_file
+```
+
+#### Options
+- `-o <output_path>`: Specify the output file path (required).
+- `-h`: Display help message.
+
+#### How It Works
+1. **Prompt for Seed and Password**: The script prompts the user for the seed and password securely, and confirms the password to ensure it matches.
+2. **Encrypt Seed**: It uses GPG with AES256 encryption to encrypt the seed with the provided password.
+3. **Output File**: The script outputs the absolute path of the encrypted file.
+4. **Security Measures**: The script clears the terminal and removes the scrollback buffer to ensure security, and securely erases the password from memory. It also sets appropriate permissions for the output file and logs the file type.
+
+
+### 2. `decrypt.sh`
 
 This script decrypts a seed data file using GPG and generates a QR code from the decrypted mnemonic.
 
@@ -25,7 +43,7 @@ This script decrypts a seed data file using GPG and generates a QR code from the
 3. **Generate QR Code**: If decryption is successful, the script generates a QR code from the decrypted mnemonic.
 4. **Security Measures**: The script clears the terminal and removes the scrollback buffer to ensure security, and securely erases the password from memory.
 
-### 2. `bip85.sh`
+### 3. `bip85.sh`
 
 This script decrypts a seed data file, derives a mnemonic phrase, and generates a QR code from the derived mnemonic.
 
@@ -47,24 +65,7 @@ This script decrypts a seed data file, derives a mnemonic phrase, and generates 
 4. **Generate QR Code**: If mnemonic derivation is successful, the script generates a QR code from the derived mnemonic.
 5. **Security Measures**: The script clears the terminal and removes the scrollback buffer to ensure security, and securely erases the password from memory.
 
-### 3. `encrypt.sh`
 
-This script encrypts a seed using GPG with AES256 encryption and generates an output file.
-
-#### Usage
-```bash
-./encrypt.sh -o path/to/output_file
-```
-
-#### Options
-- `-o <output_path>`: Specify the output file path (required).
-- `-h`: Display help message.
-
-#### How It Works
-1. **Prompt for Seed and Password**: The script prompts the user for the seed and password securely, and confirms the password to ensure it matches.
-2. **Encrypt Seed**: It uses GPG with AES256 encryption to encrypt the seed with the provided password.
-3. **Output File**: The script outputs the absolute path of the encrypted file.
-4. **Security Measures**: The script clears the terminal and removes the scrollback buffer to ensure security, and securely erases the password from memory. It also sets appropriate permissions for the output file and logs the file type.
 
 ## Docker
 
@@ -103,4 +104,3 @@ This project is licensed under the MIT License. See the LICENSE file for details
 - GPG (https://github.com/gpg/gnupg)
 - qrencode (https://linux.die.net/man/1/qrencode)
 - bipsea (https://github.com/akarve/bipsea)
-```
