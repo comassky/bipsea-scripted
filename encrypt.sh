@@ -67,6 +67,7 @@ fi
 
 # Securely erase the password from memory
 password=""
+seed=""
 
 # Set appropriate permissions for the output file
 chmod 600 "$absolute_path"
