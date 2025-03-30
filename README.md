@@ -1,3 +1,4 @@
+
 # Seed Data Encryption, decryption and BIP85 Scripts
 
 Welcome to the **Seed Data Encryption and Decryption Scripts** repository! This project contains three powerful Bash scripts designed to encrypt, decrypt, and derive mnemonic phrases from seed data files. The scripts leverage GPG (GNU Privacy Guard) for encryption and decryption, bipsea (https://github.com/akarve/bipsea) for BIP85 derivation (officially recognized by the BTC community : https://github.com/bitcoin/bips/blob/master/bip-0085.mediawiki) and qrencode (https://linux.die.net/man/1/qrencode) for generating QR codes.
@@ -92,6 +93,33 @@ You can run these scripts inside a Docker container without network access:
 
 - **Use Scripts**:
   Use the scripts as previously described.
+
+## Dockerfile Explanation
+
+This Dockerfile sets up a lightweight Python environment using Alpine Linux, installs necessary dependencies, and prepares the container to run bash scripts.
+
+### Steps:
+
+1.  **Base Image**:
+    
+    -   The Dockerfile starts by using the official Python base image with Alpine Linux (`python:alpine`). Alpine is chosen for its minimal size and efficiency.
+2.  **Working Directory**:
+    
+    -   It sets the working directory to  `/app`  using the  `WORKDIR`  instruction. This is where all subsequent commands will be executed.
+3.  **Copy Scripts**:
+    
+    -   The  `COPY`  command copies three scripts (`bip85.sh`,  `decrypt.sh`,  `encrypt.sh`) from the local machine to the  `/app`  directory in the container.
+4.  **Install Dependencies**:
+    
+    -   The  `RUN`  command updates the package list and installs several dependencies:
+        -   `bash`: A Unix shell.
+        -   `gpg`  and  `gpg-agent`: Tools for encryption and decryption.
+        -   `libqrencode-tools`: Tools for QR code generation.
+        -   `file`: A utility to determine file types.
+    -   Additionally, it installs the  `bipsea`  Python package using  `pip`.
+5.  **Default Command**:
+    
+    -   The  `CMD`  instruction sets the default command to  `bash`, ensuring that the container runs a bash shell when started.
 
 ## Contributing
 
