@@ -134,3 +134,14 @@ This project is licensed under the MIT License. See the LICENSE file for details
 - GPG (https://github.com/gpg/gnupg)
 - qrencode (https://linux.die.net/man/1/qrencode)
 - bipsea (https://github.com/akarve/bipsea)
+  
+
+##Buy Me a Coffee
+
+If you enjoy my work and would like to support me, you can buy me a coffee using the following crypto addresses:
+
+**BTC:** bc1pvd66jnspktvw34ujq54z7j7h6ked2y44qjfrwta5qr0exk4n54dqmga0yl
+
+**ETH/BSC:** 0x0f26B8Bdc028F6bd0F79FF4959306065C36d5EAa
+
+**SOL:** HLjiPsjPHHXkQNREDnrs64faLQLanJLG9pNNz3D61f6n
