@@ -142,9 +142,9 @@ If you enjoy my work and would like to support me, you can buy me a coffee using
 
 - **BTC:**     bc1qeu0867ep8u4ursf6sfp3gwq87qx55sq5dms0rj
   
-- **ETH/BSC:**    0x38f9b5650063Bb81D8bDad6Cb81a005C2ff28AF5
+- **ETH/BSC:**    0x0f26B8Bdc028F6bd0F79FF4959306065C36d5EAa
 
-- **SOL:**    B9JbhqfBukRahxcp4mvhnBED821aGrkft7T4MnETgppg
+- **SOL:**    8QgHy5UedcBAJaKZnuRzPqZZQVuC4AP4QJi5tuchkDLG
 
 - **Lightning:** <br/><br/> <p align="center">
 ![screenshot](lightning.jpeg)
