@@ -140,8 +140,12 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 If you enjoy my work and would like to support me, you can buy me a coffee using the following crypto addresses:
 
-**BTC:** bc1pvwrutz3f59ug76pcgvuw84pyfkke5yfawarkh4s7dvtrdafnysss537yxy
+- **BTC:**     bc1qeu0867ep8u4ursf6sfp3gwq87qx55sq5dms0rj
+  
+- **ETH/BSC:**    0x8c5b67344580e0Cc98623170a172D8F4867F4097
 
-**ETH/BSC:** 0x0f26B8Bdc028F6bd0F79FF4959306065C36d5EAa
+- **SOL:**    9HnxhyXdGThTusUHppt3yAuyXK6TTjq6wwqX3skYpEcJ
 
-**SOL:** HLjiPsjPHHXkQNREDnrs64faLQLanJLG9pNNz3D61f6n
+- **Lightning:** <br/><br/> <p align="center">
+![screenshot](lightning.jpeg)
+</p>
